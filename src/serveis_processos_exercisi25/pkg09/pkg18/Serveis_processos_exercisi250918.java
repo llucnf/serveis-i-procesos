@@ -18,7 +18,7 @@ public class Serveis_processos_exercisi250918 {
      * @throws serveis_processos_exercisi25.pkg09.pkg18.IOExeption
      */
     public static void main(String[] args) throws  IOException {
-        if(args.length <=0){
+        if(args.length <=0){// si no hi ha cap programa s'executa tota l'estona aquesta exepció
             System.err.println("Se necessita un programa a executar");
             System.exit(-1);
             
@@ -28,10 +28,10 @@ public class Serveis_processos_exercisi250918 {
         
         try{
                 Process process = pb.start();
-                int retorno= process.waitFor();
-                        System.out.println("La execucio de "+ Arrays.toString(args)+" retorna "+retorno);
+                int retorno= process.waitFor(); //aquest metode retorna inmediatament si el subprocess esta acabat,si el subprocess no ha acabat bloquetja el fil fins que aquest acabi
+                        System.out.println("La execucio de "+ Arrays.toString(args)+" retorna "+retorno);// mostra tots els seus atributs 
                 }catch(IOExeption ex){
-                    System.err.println("ExcepciÃ³ de E/S!");
+                    System.err.println("Excepció de E/S!");
                     System.exit(-1);
                             
                     
